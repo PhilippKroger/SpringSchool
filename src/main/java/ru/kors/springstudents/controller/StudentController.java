@@ -27,9 +27,9 @@ public class StudentController  {
         return "Student successfully saved";
     }
 
-    @GetMapping("/{email}")
-    public Student findByEmail(@PathVariable(value = "email") String email) {
-        return service.findByEmail(email);
+    @GetMapping("/{id}")
+    public Student findById(@PathVariable(value = "id") Long id) {
+        return service.findById(id);
     }
 
     @PutMapping("/update_student")
@@ -37,8 +37,8 @@ public class StudentController  {
         return service.updateStudent(student);
     }
 
-    @DeleteMapping("/delete_mapping/{email}")
-    public void deleteStudent(@PathVariable(value = "email") String email) {
-        service.deleteStudent(email);
+    @DeleteMapping("/delete_mapping/{id}")
+    public void deleteStudent(@PathVariable(value = "id") Long id) {
+        service.deleteStudent(id);
     }
 }

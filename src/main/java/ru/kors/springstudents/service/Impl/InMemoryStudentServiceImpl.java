@@ -18,27 +18,27 @@ public class InMemoryStudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> findAllStudent() {
-        return repository.findAllStudent();
+        return repository.findAll();
     }
 
     @Override
     public Student saveStudent(Student student) {
-        return repository.saveStudent(student);
+        return repository.save(student);
     }
 
     @Override
-    public Student findByEmail(String email) {
-        return repository.findByEmail(email);
+    public Student findById(Long id) {
+        return repository.findById(id).get();
     }
 
 
     @Override
     public Student updateStudent(Student student) {
-        return repository.updateStudent(student);
+        return repository.save(student);
     }
 
     @Override
-    public void deleteStudent(String email) {
-        repository.deleteStudent(email);
+    public void deleteStudent(Long id) {
+        repository.deleteById(id);
     }
 }

@@ -1,5 +1,6 @@
 package ru.kors.springstudents.model.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.kors.springstudents.model.Student;
 
@@ -8,7 +9,9 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 @Repository
-public class InMemoryStudentDAO {
+public interface InMemoryStudentDAO extends JpaRepository<Student, Long> { // интерфейс
+
+    /*
     private final List<Student> STUDENTS = new ArrayList<>();
 
     public List<Student> findAllStudent() {
@@ -47,4 +50,6 @@ public class InMemoryStudentDAO {
             STUDENTS.remove(student);
         }
     }
+
+     */
 }

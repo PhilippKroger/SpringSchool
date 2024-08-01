@@ -1,26 +1,41 @@
 package ru.kors.springstudents.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Data
-@Builder
+@Entity
+@Table(name = "students")
 public class Student {
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "dob")
     private LocalDate dateOfBirth;
-    @NonNull
+    @Column(name = "email", unique = true)
     private String email;
+    @Column(name = "age")
     private Integer age;
 
+    // Default constructor
+    public Student() {
+    }
+
     public Student(
+            Long id,
             String firstName,
             String lastName,
             LocalDate dateOfBirth,
             String email,
             Integer age
     ) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
